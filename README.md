@@ -14,15 +14,16 @@ This program pulls refinery locations out of GAMS .lst files and adds a point la
 
 This script requires:
 
-the .lst from GAMS with refinery locations listed
-vector grid which corresponds to the locations used in the GAMS analysis
-which field of the vector grid corresponds to the ID number
-name of the variable for presence of refinery
-name of the variable for flow rate of material
-cell ID for demand centers
-names of products, separated by commas
-names of transportaion methods, separated by commas
+(1) the .lst from GAMS with refinery locations listed
+(2) vector grid which corresponds to the locations used in the GAMS analysis
+(3) which field of the vector grid corresponds to the ID number
+(4) name of the variable for presence of refinery
+(5) name of the variable for flow rate of material
+(6) cell ID for demand centers
+(7) names of products, separated by commas
+(8) names of transportaion methods, separated by commas
+
 This script outputs:
 
-a separate point layer for each refinery type with locations
-a separate line layer with arrows directing the flow of indicated materials for each material
+(1) a separate point layer for each refinery type with locations
+(2) a separate line layer with arrows directing the flow of indicated materials for each material
