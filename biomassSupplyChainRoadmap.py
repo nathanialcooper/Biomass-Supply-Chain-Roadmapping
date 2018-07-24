@@ -1,7 +1,7 @@
 # Biomass Supply Chain Roadmap
 # Author name: Nathanial Cooper
 # Author email: nathanial.cooper AT imperial.ac.uk (preferred), nattiecooper AT gmail.com (alternate)
-# Date: 26 Jan 2018
+# Date: 24 July 2018
 # Version: 1.0
 #-------------------------------------------DESCRIPTION-----------------------------------------------------------
 # This program pulls refinery locations out of GAMS .lst files and adds a point layer to that location. It
@@ -12,7 +12,7 @@
 # 3) which field of the vector grid corresponds to the ID number
 # 4) name of the variable for presence of refinery
 # 5) name of the variable for flow rate of material
-# 6) cell ID for demand centers
+# 6) cell ID for demand centers 
 # 7) names of products, separated by commas
 # 8) names of transportaion methods, separated by commas
 # This script outputs:
@@ -21,14 +21,14 @@
 #----------------------------------------------------------------------------------------------------------------------
 
 # Inputs
-##Biomass Supply Chain Roadmap=name
+##RENESENG Biomass Supply Chain Roadmap=name
 ##GAMS_lst_output=file
 ##Reference_Grid=vector polygon
 ##ID_Field=field Reference_Grid
 ##Name_of_Refinery_Presence_Variable_in_locations_file=string X
 ##Name_of_Flow_Rate_Variable_in_locations_file=string Q
-##Locations_of_Demand_Centers_separate_values_by_commas=string 22,71
-##Types_of_Materials_separate_values_by_commas=string ethanol,power,xylitol,PU,PF_resin
+##Locations_of_Demand_Centers_separate_values_by_commas=string 69,89
+##Types_of_Materials_separate_values_by_commas=string winter_wheat_straw,winter_barley_straw,corn_stover,ethanol,power,xylitol,PU,PF_resin
 ##Types_of_Transportation_Methods_separate_values_by_commas=string truck
 
 # Relevant package importation
@@ -110,7 +110,7 @@ for line in locationFile:
         elif (startLoc and [i for i in transMeth if i in splitLine[0]]):
             endLoc = splitLine[0].split('.')
             transAmts = [float(i) for i in splitLine[1:]]
-            avgVal = sum(transAmts)/float(len(transAmts))
+            avgVal = sum(transAmts)/12.0
             sourcePos = sourceCells.index(str(currProd[0]))+1
             sourceCells[sourcePos].append([startLoc, int(endLoc[-1]), avgVal])
     
